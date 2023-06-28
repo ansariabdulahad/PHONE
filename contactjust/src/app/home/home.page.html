@@ -15,32 +15,35 @@
         
         <ion-item>
           <ion-label position="floating">Name</ion-label>
-          <ion-input type="text" placeholder="Enter Your Name"></ion-input>
+          <ion-input type="text" id="name" placeholder="Enter Your Name"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">Mobile</ion-label>
-          <ion-input type="tel" placeholder="Enter Your Mobile"></ion-input>
+          <ion-input type="tel" id="mobile" placeholder="Enter Your Mobile"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">User Name</ion-label>
-          <ion-input type="email" placeholder="Enter Your Username"></ion-input>
+          <ion-input type="email" id="username" placeholder="Enter Your Username"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">Password</ion-label>
-          <ion-input type="password" placeholder="Enter Your Password"></ion-input>
+          <ion-input type="password" id="password" placeholder="Enter Your Password"></ion-input>
         </ion-item>
 
         <!-- SIGN UP BUTTON -->
-        <ion-button expand="full" color="danger">
+        <ion-button id="signup-btn" expand="full" color="danger">
           <ion-icon name="key" slot="start"></ion-icon>
           <ion-label>Sign Up</ion-label>
         </ion-button>
 
+        <!-- NOTICE -->
+        <small id="signup-notice" style="color: red; font-size: 15px; display: none;">Please fill all the fields !</small>
+
         <!-- SIGN IN BUTTON -->
-        <ion-button style="display: none;" expand="full" color="primary">
+        <ion-button id="login-btn" style="display: none;" expand="full" color="primary">
           <ion-icon name="key" slot="start"></ion-icon>
           <ion-label>Sign In</ion-label>
         </ion-button>
