@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      PHONE DRIVE
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- START CODING -->
+<ion-content>
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+        <img src="/assets/images/images.jpeg" alt="image not found">
+        
+        <ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input type="text" placeholder="Enter Your Name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Mobile</ion-label>
+          <ion-input type="tel" placeholder="Enter Your Mobile"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">User Name</ion-label>
+          <ion-input type="email" placeholder="Enter Your Username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" placeholder="Enter Your Password"></ion-input>
+        </ion-item>
+
+        <!-- SIGN UP BUTTON -->
+        <ion-button expand="full" color="danger">
+          <ion-icon name="key" slot="start"></ion-icon>
+          <ion-label>Sign Up</ion-label>
+        </ion-button>
+
+        <!-- SIGN IN BUTTON -->
+        <ion-button style="display: none;" expand="full" color="primary">
+          <ion-icon name="key" slot="start"></ion-icon>
+          <ion-label>Sign In</ion-label>
+        </ion-button>
+
+      </ion-card-header>
+    </ion-card>
+  </div>
+</ion-content>
