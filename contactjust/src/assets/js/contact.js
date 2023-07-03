@@ -1,6 +1,6 @@
 // START CODING
-window.onload = function() {
-    
+window.onload = function () {
+
     // GLOBAL VARIABLES
     let page = document.querySelector("#page");
     let allContactBox = document.querySelector(".all-contact");
@@ -21,7 +21,7 @@ window.onload = function() {
 
     // CHECK LOCAL STORAGE IS EMPTY OR NOT AND PERFORM SOME ACTION
     function checkSignup() {
-        if(localStorage.getItem('userData') != null) {
+        if (localStorage.getItem('userData') != null) {
             setTimeout(() => {
                 signupBtn.style.display = "none";
                 nameBox.style.display = "none";
@@ -30,7 +30,7 @@ window.onload = function() {
             }, 500);
 
             // CHECK SESSION STORAGE
-            if(sessionStorage.getItem("username") != null) {
+            if (sessionStorage.getItem("username") != null) {
                 container.style.display = "none";
                 page.style.display = "block";
             }
@@ -52,11 +52,11 @@ window.onload = function() {
     checkSignup(); // calling...
 
     // SIGN UP BTN CODING
-    signupBtn.onclick = function(e) {
+    signupBtn.onclick = function (e) {
         e.preventDefault();
 
         // CHECK AND STORE DATA IN LOCALSTORAGE
-        if(nameEl.value && mobileEl.value && usernameEl.value && passwordEl.value != "") {
+        if (nameEl.value && mobileEl.value && usernameEl.value && passwordEl.value != "") {
             let data = {
                 name: nameEl.value,
                 mobile: mobileEl.value,
@@ -65,7 +65,7 @@ window.onload = function() {
             };
 
             localStorage.setItem("userData", JSON.stringify(data));
-            
+
             // EMPTY INPUT FIELDS AFTER SIGNUP
             setTimeout(() => {
                 nameEl.value = '';
@@ -86,16 +86,16 @@ window.onload = function() {
     }
 
     // LOGIN BTN CODING
-    loginBtn.onclick = function (e) { 
+    loginBtn.onclick = function (e) {
         e.preventDefault();
 
-        if(localStorage.getItem("userData") != null) {
+        if (localStorage.getItem("userData") != null) {
             let userData = JSON.parse(localStorage.getItem("userData"));
 
-            if(usernameEl.value == userData.username) {
-                if(passwordEl.value == userData.password) {
+            if (usernameEl.value == userData.username) {
+                if (passwordEl.value == userData.password) {
                     sessionStorage.setItem("username", usernameEl.value);
-                    
+
                     setTimeout(() => {
                         container.style.display = "none";
                         page.style.display = "block";
@@ -104,11 +104,11 @@ window.onload = function() {
                 else {
                     presentAlert("Password is incorrect !", "Warning !");
                 }
-            }            
+            }
             else {
                 presentAlert("Username not found !", "Warning !");
             }
-        }        
+        }
     }
 
     // PRESENT ALERT FUNCTION CODING
@@ -123,7 +123,7 @@ window.onload = function() {
     }
 
     // START CODING OF STORING CONTACT DATA
-    addBtn.onclick = function() {
+    addBtn.onclick = function () {
         modelAlert(); // calling...
     }
 
@@ -158,11 +158,11 @@ window.onload = function() {
     }
 
     // UPLOAD DATA FUNCTION CODNG
-    function uploadData(alert) { 
+    function uploadData(alert) {
         let inputEl = alert.querySelectorAll("input");
         let allBtn = alert.querySelectorAll("button");
 
-        allBtn[1].onclick = function(e) {
+        allBtn[1].onclick = function (e) {
             e.preventDefault();
 
             allContacts.push({
@@ -209,9 +209,9 @@ window.onload = function() {
         // DEL BTN CODING
         let i;
         let allDelBtn = document.querySelectorAll(".del-btn");
-        
-        for(i = 0; i < allDelBtn.length; i++) {
-            allDelBtn[i].onclick = function() {
+
+        for (i = 0; i < allDelBtn.length; i++) {
+            allDelBtn[i].onclick = function () {
                 let parent = this.parentElement.parentElement;
                 let id = parent.getAttribute("index");
                 allContacts.splice(id, 1);
@@ -224,8 +224,8 @@ window.onload = function() {
         // UPDATE BTN CODING
         let allUpdateBtn = document.querySelectorAll(".update-btn");
 
-        for(i = 0; i < allUpdateBtn.length; i++) {
-            allUpdateBtn[i].onclick = function() {
+        for (i = 0; i < allUpdateBtn.length; i++) {
+            allUpdateBtn[i].onclick = function () {
                 let parent = this.parentElement.parentElement;
                 let index = parent.getAttribute("index");
                 let label = parent.querySelectorAll("ion-label");
@@ -264,7 +264,7 @@ window.onload = function() {
         let upNumberEl = up_alert.querySelector("#up-number");
         let allBtn = up_alert.querySelectorAll("button");
 
-        allBtn[1].onclick = function() {
+        allBtn[1].onclick = function () {
             allContacts[index] = {
                 name: upNameEl.value,
                 number: upNumberEl.value
@@ -277,21 +277,21 @@ window.onload = function() {
     }
 
     // BACK BUTTON CODING FOR MOBILE PHONE
-    document.addEventListener("backbutton", function() {
+    document.addEventListener("backbutton", function () {
         navigator.app.exitApp();
     });
 
     // SEARCH FACILITY
-    search.oninput = function() {
+    search.oninput = function () {
         let i;
         let filter = search.value.toLowerCase();
         let itemEl = document.querySelectorAll("ion-item-sliding");
 
-        for(i = 0; i < itemEl.length; i++) {
+        for (i = 0; i < itemEl.length; i++) {
             let label = itemEl[i].getElementsByTagName("ion-label");
             let data = label[0].innerHTML;
 
-            if(data.toLowerCase().indexOf(filter) > -1) {
+            if (data.toLowerCase().indexOf(filter) > -1) {
                 itemEl[i].style.display = "";
             }
             else {
